@@ -32,27 +32,47 @@ vector<string> bothSports(const vector<Player>& sport1, const vector<Player>& sp
     return both;
 }
 
-//Task 2 Function Goal O(N)
+//Task 2 Function Goal O(N),  0->N
+//Missing only one integer
 int missingInt(const vector<int>& nums){
-
+    //since start at 0 we can just utilize size 
+    int n = nums.size();
+    //summation formula
+    int expectedSum = (n * (n+1)) / 2;
+    int sum  = 0;
+    //only iterating once to find summation
+    for (int i =0; i < nums.size(); i++){
+        sum += nums[i];
+    }
+    return (expectedSum - sum);
 }
 
 //Task 3 Function Goal O(N)
-int greatestProfit(const vector<int>& stockPredictions){
+//int greatestProfit(const vector<int>& stockPredictions){
 
-}
+// }
 
 //Task 4 Goal O(N)
-int highestProduct(const vector<int>& vals){
+//int highestProduct(const vector<int>& vals){
 
-}
+//}
 
 //Task 5 (use double for 10 places) Goal O(N)
-vector<double> orderTemp(const vector<double>& temps){
+//vector<double> orderTemp(const vector<double>& temps){
 
-}
+//}
 
 //Task 6 Goal O(N)
-int longSeq(const vector<int>& vals){
+//int longSeq(const vector<int>& vals){
 
+//}
+
+
+
+int main(){
+    vector<int> nums = {2, 3, 4, 5, 6, 0, 1};
+
+    cout << missingInt(nums);
+
+    return 0;
 }
