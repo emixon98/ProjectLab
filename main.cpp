@@ -92,14 +92,24 @@ int highestProduct(const vector<int>& vals){
 }
 
 //Task 5 (use double for 10 places) Goal O(N)
-//vector<double> orderTemp(const vector<double>& temps){
+vector<double> orderTemp(const vector<double>& temps){
+//Healthy range 97.0 to 99.0
+    //How are multiple cases meant to be handled, just listed out consecutively?
+    //Because vals only range from 97.0 to 99.0 in .1 increments we can conclude there are 21 different possible temps
+    // because of this we can use a hash table that simply marks occurences of each individual temp
+    //We then use this map to insert our occuring vals into our output array using an incrementing for loop
+    //If present in the map insert it for as many occurences as it has, ie in the example given 98.0 would have an occurence rate of 2 and would need to be inserted twice
 
-//}
+}
 
 //Task 6 Goal O(N)
-//int longSeq(const vector<int>& vals){
-
-//}
+int longSeq(const vector<int>& vals){
+    //needs to be consecutive, difference of one
+    //first thought is a process that is a time complexity of O(n*(n-1)) need to simplify
+    //can potentially sort them into a new vector, then can check if next val is +1 from last val
+    //if so add to a running vector, but if run into a longer one later will need to change vector...
+    //nvm only returning length of sequence, that makes it much easier
+}
 
 
 
