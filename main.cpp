@@ -150,6 +150,31 @@ int longSeq(const vector<int>& vals){
 
 
 int main(){
+//How Im declaring the Player arrays as type/example given is most likely written in Ruby
+    vector<Player> basketball_players = {
+        {"Jill",  "Huang",     "Gators"},
+        {"Janko", "Barton",    "Sharks"},
+        {"Wanda", "Vakulskas", "Sharks"},
+        {"Jill",  "Moloney",   "Gators"},
+        {"Luuk",  "Watkins",   "Gators"}
+    };
+
+    vector<Player> football_players = {
+        {"Hanzla", "Radosti",   "32ers"},
+        {"Tina",   "Watkins",   "Barleycorns"},
+        {"Alex",   "Patel",     "32ers"},
+        {"Jill",   "Huang",     "Barleycorns"},
+        {"Wanda",  "Vakulskas", "Barleycorns"}
+    };
+
+    vector<string> multiple_sports = bothSports(basketball_players, football_players);
+
+    for (int i = 0; i < multiple_sports.size(); i++){
+        cout << multiple_sports[i] << " ";
+    }
+
+    cout << endl;
+
     vector<int> nums = {2, 3, 4, 5, 6, 0, 1};
 
     cout << missingInt(nums) << endl;
