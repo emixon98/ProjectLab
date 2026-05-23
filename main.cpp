@@ -99,17 +99,36 @@ vector<double> orderTemp(const vector<double>& temps){
     // because of this we can use a hash table that simply marks occurences of each individual temp
     //We then use this map to insert our occuring vals into our output array using an incrementing for loop
     //If present in the map insert it for as many occurences as it has, ie in the example given 98.0 would have an occurence rate of 2 and would need to be inserted twice
+    unordered_map<double, int> occurences;
+    for (double temp : temps) occurences[temp]++;
 
+    vector<double> order;
+    //couldnt declare size in one line, added extra 0 vals
+    order.reserve(temps.size());
+    //maybe error was here in loop, error with iteration was present here
+    for (int i = 0; i <= 20; i++){
+        double temp = 97.0 + (i * .1);
+        auto it = occurences.find(temp);
+        if(it != occurences.end())
+        //j is compared to the second part of the map pair, in this case occurences
+        //does not break out time complexity because we arent iterating through n occurences, just occurences of the temperature
+        //in the case our only temperature is 97.5 for example, we are using our unordered_map for iteration, which would only have one temp in such a case
+        // so our iteration in that case would be O(1 + n) n being occurence, either way we even out between these loops to simplify to O(n) time complexity
+            for (int j=0; j < it->second; j++)
+                order.push_back(temp);
+    }
+    return order;
 }
 
 //Task 6 Goal O(N)
-int longSeq(const vector<int>& vals){
+//int longSeq(const vector<int>& vals){
     //needs to be consecutive, difference of one
     //first thought is a process that is a time complexity of O(n*(n-1)) need to simplify
     //can potentially sort them into a new vector, then can check if next val is +1 from last val
     //if so add to a running vector, but if run into a longer one later will need to change vector...
     //nvm only returning length of sequence, that makes it much easier
-}
+
+//}
 
 
 
@@ -130,6 +149,16 @@ int main(){
 
     vector<int> products = {5, -10, -6, 20 ,4};
     cout<< highestProduct(products) << endl;
+
+    vector<double> temperatures = {98.6, 98.0, 97.1, 99.0, 98.9, 97.8, 98.5, 98.2, 98.0, 97.1};
+
+    vector<double> ordered_temps = orderTemp(temperatures);
+    for (int i=0; i < ordered_temps.size(); i++){
+        cout << ordered_temps[i] << " ";
+    }
+
+    cout << endl;
+
 
     return 0;
 }
