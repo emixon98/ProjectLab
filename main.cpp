@@ -65,10 +65,31 @@ int greatestProfit(const vector<int>& stockPredictions){
     return profit;
 }
 
-//Task 4 Goal O(N)
-//int highestProduct(const vector<int>& vals){
+//Task 4 Goal O(N) Potentially two highest pos vals or two most neg vals, can check if abs val function
+//can use max and min again
+int highestProduct(const vector<int>& vals){
+    //set placeholder for highest, second highest, lowest, second lowest.
+    //iterate through vector for what might be the next highest or lowest and shift accordingly
+    //return the max between highest*second highest and lowest*secondlowest
+    int greatest = vals[0];
+    int second_greatest = vals[0];
+    int lowest = vals[0];
+    int second_lowest = vals[0];
 
-//}
+    for (int i =1; i < vals.size(); i++){
+        if (vals[i] > greatest) {
+            second_greatest = greatest;
+            greatest = vals[i];
+        }
+        else if (vals[i] > second_greatest) second_greatest=vals[i];
+        else if (vals[i] < lowest){
+            second_lowest = lowest;
+            lowest = vals[i];
+        } 
+        else if (vals[i] < second_lowest) second_lowest = vals[i];    
+    }
+    return max(greatest * second_greatest, lowest * second_lowest);
+}
 
 //Task 5 (use double for 10 places) Goal O(N)
 //vector<double> orderTemp(const vector<double>& temps){
@@ -92,6 +113,13 @@ int main(){
     vector<int> stocks = {10, 7, 5, 8, 11, 2, 6};
     //correct return of 6 can add $ for formatting, but test niche cases and other options as well
     cout << greatestProfit(stocks) << endl;
+
+    //task 4 both cases of highestproduct being negative and being positive work
+    vector<int> product = {5, -10, -6, 8 ,4};
+    cout<< highestProduct(product) << endl;
+
+    vector<int> products = {5, -10, -6, 20 ,4};
+    cout<< highestProduct(products) << endl;
 
     return 0;
 }
