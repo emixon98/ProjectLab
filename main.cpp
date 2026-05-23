@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
+#include <algorithm>
 using namespace std;
 
 
@@ -121,14 +123,29 @@ vector<double> orderTemp(const vector<double>& temps){
 }
 
 //Task 6 Goal O(N)
-//int longSeq(const vector<int>& vals){
+int longSeq(const vector<int>& vals){
     //needs to be consecutive, difference of one
     //first thought is a process that is a time complexity of O(n*(n-1)) need to simplify
     //can potentially sort them into a new vector, then can check if next val is +1 from last val
     //if so add to a running vector, but if run into a longer one later will need to change vector...
     //nvm only returning length of sequence, that makes it much easier
+    //using count algorithm function we can basically use it as a boolean that is true if a val is contained
 
-//}
+    unordered_set<int> nums(vals.begin(), vals.end());
+
+    int longest_seq = 0;
+
+    for(int i : nums){
+        //check if our current value is the true "starting point"
+        if (!nums.count(i - 1)){
+            int len = 1;
+            while(nums.count(i + len))
+                ++len;
+            longest_seq = max(longest_seq, len);
+        }
+    }
+    return longest_seq;
+}
 
 
 
@@ -159,6 +176,10 @@ int main(){
 
     cout << endl;
 
+
+    vector<int> sequence = {10, 5, 12, 3, 55, 30, 4, 11, 2};
+    vector<int> sequence2 = {19, 13, 15, 12, 18, 14, 17, 11};
+    cout << longSeq(sequence) << endl << longSeq(sequence2) << endl;
 
     return 0;
 }
