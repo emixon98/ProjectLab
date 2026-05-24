@@ -176,33 +176,35 @@ int main(){
 
     vector<string> multiple_sports = bothSports(basketball_players, football_players);
 
+    cout << "Multi-Sport Athletes: ";
     for (int i = 0; i < (int)multiple_sports.size(); i++){
         cout << multiple_sports[i] << " ";
     }
 
     cout << endl;
 
-    vector<int> nums = {2, 3, 4, 5, 6, 0, 1};
+    vector<int> nums = {2, 3, 0, 6, 1, 5};
+    vector<int> nums2 = {8, 2, 3, 9, 4, 7, 5, 0, 6};
 
-    cout << "Missing Value: " << missingInt(nums) << endl;
+    cout << "Missing Value of First Example: " << missingInt(nums) << endl;
+
+    cout << "Missing Value of Second Example: " << missingInt(nums2) << endl;
 
     vector<int> stocks = {10, 7, 5, 8, 11, 2, 6};
     //correct return of 6 can add $ for formatting, but test niche cases and other options as well
-    cout << "$ " << greatestProfit(stocks) << endl;
+    cout << "The greatest profit is: $ " << greatestProfit(stocks) << endl;
 
     //task 4 both cases of highestproduct being negative and being positive work
     vector<int> product = {5, -10, -6, 8 ,4};
-    cout<< "Highest Product: " <<  highestProduct(product) << endl;
+    cout<< "Highest Product with Negative Case: " <<  highestProduct(product) << endl;
 
     vector<int> products = {5, -10, -6, 20 ,4};
-    cout<< "Highest Product: " << highestProduct(products) << endl;
-
-    vector<int> edge = {3, 2};
-    cout<< "Highest Product: " << highestProduct(edge)<< endl;
+    cout<< "Highest Product with Positive Case: " << highestProduct(products) << endl;
 
     vector<float> temperatures = {98.6, 98.0, 97.1, 99.0, 98.9, 97.8, 98.5, 98.2, 98.0, 97.1};
 
     vector<float> ordered_temps = orderTemp(temperatures);
+    cout << "The ordered temperatures are: ";
     for (int i=0; i < (int)ordered_temps.size(); i++){
         cout << ordered_temps[i] << " ";
     }
@@ -212,7 +214,8 @@ int main(){
 
     vector<int> sequence = {10, 5, 12, 3, 55, 30, 4, 11, 2};
     vector<int> sequence2 = {19, 13, 15, 12, 18, 14, 17, 11};
-    cout << longSeq(sequence) << endl << longSeq(sequence2) << endl;
+    cout << "The first example longest sequence is: " << longSeq(sequence) << endl 
+    << "The second example longest sequence is: " << longSeq(sequence2) << endl;
 
     return 0;
 }
