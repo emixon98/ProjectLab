@@ -154,7 +154,7 @@ int longSeq(const vector<int>& vals){
     return longest_seq;
 }
 
-
+//Maybe add print statements inside functions...
 
 int main(){
 //How Im declaring the Player arrays as type/example given is most likely written in Ruby
@@ -184,21 +184,21 @@ int main(){
 
     vector<int> nums = {2, 3, 4, 5, 6, 0, 1};
 
-    cout << missingInt(nums) << endl;
+    cout << "Missing Value: " << missingInt(nums) << endl;
 
     vector<int> stocks = {10, 7, 5, 8, 11, 2, 6};
     //correct return of 6 can add $ for formatting, but test niche cases and other options as well
-    cout << greatestProfit(stocks) << endl;
+    cout << "$ " << greatestProfit(stocks) << endl;
 
     //task 4 both cases of highestproduct being negative and being positive work
     vector<int> product = {5, -10, -6, 8 ,4};
-    cout<< highestProduct(product) << endl;
+    cout<< "Highest Product: " <<  highestProduct(product) << endl;
 
     vector<int> products = {5, -10, -6, 20 ,4};
-    cout<< highestProduct(products) << endl;
+    cout<< "Highest Product: " << highestProduct(products) << endl;
 
     vector<int> edge = {3, 2};
-    cout<< highestProduct(edge)<< endl;
+    cout<< "Highest Product: " << highestProduct(edge)<< endl;
 
     vector<float> temperatures = {98.6, 98.0, 97.1, 99.0, 98.9, 97.8, 98.5, 98.2, 98.0, 97.1};
 
