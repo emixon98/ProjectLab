@@ -127,10 +127,9 @@ vector<float> orderTemp(const vector<float> temps){
     vector<float> order;
     order.reserve(temps.size());
 
-    //maybe error was here in loop, error with iteration was present here
     for (int i = 0; i <= 20; i++){
         //make our i into tenth form
-        double temp = 97.0 + (i * .1);
+        float temp = 97.0 + (i * .1);
 
         //iterate and find all occurences of a specific temp
         auto it = occurences.find(temp);
