@@ -60,6 +60,8 @@ Knowing that the provided array is intended to value from 0 to n we can utilize 
 #### Function:
 ```cpp
 int greatestProfit(const vector<int>& stockPredictions){
+    if (stockPredictions.empty()) return 0;
+
     //starting vals/placeholders
     int low = stockPredictions[0];
     int profit = 0;
@@ -83,6 +85,8 @@ For this function we want to find the most profitable time to buy and sell stock
 ```cpp
 int highestProduct(const vector<int>& vals){
     //set placeholder/basis for highest, second highest, lowest, second lowest.
+    if (vals.empty()) return 0;
+    if (vals.size() < 2) return 0;
 
     int greatest = max(vals[0], vals[1]);
     int second_greatest = min(vals[0], vals[1]);
